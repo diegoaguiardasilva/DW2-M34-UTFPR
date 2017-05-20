@@ -12,8 +12,10 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author diego
  */
-@WebServlet(name = "Servlet", urlPatterns = {"/Servlet"})
-public class Servlet extends HttpServlet {
+@WebServlet(name = "ClasseServlet", urlPatterns = {"/ClasseServlet"})
+public class ClasseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +42,10 @@ public class Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
+        
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
             String telefone = request.getParameter("telefone");
@@ -64,40 +66,19 @@ public class Servlet extends HttpServlet {
 
             da = new DAOUsuario();
             da.inserir(us);
-            
-            
-            Usuario usa = da.obter(us.getIdUsuario());
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Enviado com sucesso!</title>");
-            out.println("<style>");
-            out.println("body {");
-            out.println("background-color: #00E89D;");
-            out.println("font-family: Arial;");
-            out.println("color: blue;");
-            out.println("}");
-            out.println("</style>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Enviado com sucesso!</h1>");
-            out.println("<h2>Dados do último usuário adicoinado.</h2>");
-            out.println("<p> Id: " + usa.getIdUsuario()+ "</p>");
-            out.println("<p> Nome: " + usa.getNome() + "</p>");
-            out.println("<p> CPF: " + usa.getCpf() + "</p>");
-            out.println("<p> Nascimento: " + new SimpleDateFormat("dd/mm/yyyy").format(usa.getNascimento()) + "</p>");
-            out.println("<p> Telefone: " + usa.getTelefone() + "</p>");
-            out.println("<p> Email: " + usa.getEmail() + "</p>");
-            out.println("<p> Senha: " + usa.getSenha() + "</p>");
-            out.println("<h3><a href=\"" + request.getContextPath() + "\">cadastrar novo</a></h3>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            List<Usuario> usuarios = da.list();
+
+            request.setAttribute("usuarios", usuarios);
+
+            RequestDispatcher rd = request.getRequestDispatcher("/newjsp.jsp");
+
+            rd.forward(request, response);
         }
     }
 
-
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -111,10 +92,8 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-
         } catch (ParseException ex) {
-            Logger.getLogger(Servlet.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClasseServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -131,10 +110,8 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-
         } catch (ParseException ex) {
-            Logger.getLogger(Servlet.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClasseServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

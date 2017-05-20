@@ -102,7 +102,7 @@
                                 <div class="col-md-12">
                                     <div class="slider-caption">
                                         <h2>Tenha uma Marca</h2>
-                                        <p class="color-white">Ter uma marca √© ser lembrado, figuras ficam na mem√≥ria</p>
+                                        <p class="color-white">Ter uma marca È ser lembrado, figuras ficam na memÛria</p>
                                     </div>
                                 </div>
                             </div>
@@ -112,8 +112,8 @@
                         <img src="images/slider/slide2.jpg" alt="slider image 2">
                         <div class="container caption-wrapper">
                             <div class="slider-caption">
-                                <h2>Somos respons√°veis</h2>
-                                <p class="color-white">Cumprir prazos √© um dos nossos pilares</p>
+                                <h2>Somos respons·veis</h2>
+                                <p class="color-white">Cumprir prazos È um dos nossos pilares</p>
                             </div>
                         </div>
                     </li>
@@ -123,8 +123,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="slider-caption">
-                                        <h2>Transpar√™ncia</h2>
-                                        <p class="color-white">Faremos de tudo para que acompanhe a produ√ß√£o da sua marca!</p>
+                                        <h2>TransparÍncia</h2>
+                                        <p class="color-white">Faremos de tudo para que acompanhe a produÁ„o da sua marca!</p>
                                     </div>
                                 </div>
                             </div>
@@ -136,8 +136,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="slider-caption">
-                                        <h2>Design & Inspira√ß√£o</h2>
-                                        <p class="color-white">A Arte nos move, apreciamos, sentimos! A sua marca ter√° a sua cara!</p>
+                                        <h2>Design & InspiraÁ„o</h2>
+                                        <p class="color-white">A Arte nos move, apreciamos, sentimos! A sua marca ter· a sua cara!</p>
                                     </div>
                                 </div>
                             </div>
@@ -191,14 +191,14 @@
                             <h5 class="wow bounceIn">Tenha uma marca</h5>
                             <h1 class="heading">CRIE UMA CONTA</h1>
                             <hr>
-                            <p>A cria√ß√£o de uma conta √© gratuita. Seus dados ficar√£o seguros. Somos transparentes.</p>
+                            <p>A criaÁ„o de uma conta È gratuita. Seus dados ficar„o seguros. Somos transparentes.</p>
                         </div>
                     </div>
 
                     <!-- Contact form section
                     ================================================== -->
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
-                        <form action="Servlet" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
+                        <form action="ClasseServlet" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
                             <div class="col-md-6 col-sm-6">
                                 <input type="text" class="form-control" placeholder="Nome" name="nome">
                             </div>
